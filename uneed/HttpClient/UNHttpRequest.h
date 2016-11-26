@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "UNHttpClient.h"
 
 typedef NS_ENUM(NSInteger, UNHttpRequestType) {
     UNHttpRequestType_Post = 0,

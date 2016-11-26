@@ -8,8 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@class UNHttpRequest;
-NS_ENUM(NSInteger, ErrorIndex)
+typedef NS_ENUM(NSInteger, ErrorIndex)
 {
     ERR_SERVER_NOPARAMETER =2001,//:参数有误
     ERR_SERVER_SQL = 2002,//: 数据库连接查询错误
@@ -24,6 +23,8 @@ NS_ENUM(NSInteger, ErrorIndex)
     ERR_TOKENLOSE = 3006,//： token失效
     ERR_END
 };
+
+@class UNHttpRequest;
 
 typedef void (^UNRequestCompletionBlock)(id response, NSError *errorMsg);
 

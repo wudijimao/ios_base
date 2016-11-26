@@ -27,10 +27,21 @@
     
     // Do any additional setup after loading the view.
     _webView = [[UNWebView alloc] initWithFrame:self.view.bounds];
+    _webView.backgroundColor = [UIColor lightGrayColor];
     [self.view addSubview:_webView];
     NSURLCache *urlCache = [[NSURLCache alloc] initWithMemoryCapacity:4 * 1024 * 1024 diskCapacity:60 * 1024 * 1024 diskPath:nil];
     [NSURLCache setSharedURLCache:urlCache];
-    //[NSURLRequest requestWithURL:[NSURL URLWithString:@"http://www.baidu.com"]]];
+    [_webView openUrl:@"http://www.moemiku.com"];
+    
+    UIButton *btn = [[UIButton alloc] initWithFrame:CGRectMake(30, 30, 50, 50)];
+    [self.view addSubview:btn];
+    btn.backgroundColor = [UIColor darkGrayColor];
+    [btn setTitle:@"返回" forState:UIControlStateNormal];
+    [btn addTarget:self action:@selector(back) forControlEvents:UIControlEventTouchUpInside];
+}
+
+- (void)back {
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (void)didReceiveMemoryWarning {

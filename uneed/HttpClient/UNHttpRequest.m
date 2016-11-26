@@ -8,13 +8,14 @@
 
 #import "UNHttpRequest.h"
 #import "UIDevice+DTHelper.h"
-
+#import "NSDictionary+DTSafeGet.h"
 
 @implementation UNHttpRequest
 
 - (instancetype)init {
     self = [super init];
     if (self) {
+        _requestType = UNHttpRequestType_Get;
     }
     return self;
 }
@@ -33,14 +34,14 @@
     if ([UIDevice currentDevice].systemVersion) {
         [dict setObject:[UIDevice currentDevice].systemVersion forKey:@"os_v"];
     }
-    NSString *deviceModelName = [UIDevice dt_getDeviceModelName];
-    if (deviceModelName.length > 0) {
-        [dict setObject:deviceModelName forKey:@"d_n"];
-    }
-    NSString *ip = [UIDevice dt_deviceIPAdress];
-    if (ip.length > 0) {
-        [dict setObject:ip forKey:@"ip"];
-    }
+//    NSString *deviceModelName = [UIDevice dt_getDeviceModelName];
+//    if (deviceModelName.length > 0) {
+//        [dict setObject:deviceModelName forKey:@"d_n"];
+//    }
+//    NSString *ip = [UIDevice dt_deviceIPAdress];
+//    if (ip.length > 0) {
+//        [dict setObject:ip forKey:@"ip"];
+//    }
     return dict;
 }
 
@@ -59,12 +60,13 @@
     if ([responseObject isKindOfClass:[NSDictionary class]])
     {
         NSDictionary *dict = responseObject;
-        if ([dict objectForKey:@"status"] && ![[[dict objectForKey:@"status"] stringValue] isEqualToString:@"1"])
+        NSString *status = [dict dt_getStringWithKey:@"status"];
+        if (status != nil && [status isEqualToString:@"200"])
         {
-            self.errorMes = [[NSError alloc] initWithDomain:[dict objectForKey:@"message"] code:[[[dict objectForKey:@"status"] stringValue] intValue] userInfo:responseObject];
-        } else {
             self.response = [dict objectForKey:@"data"];
             return (_response != nil);
+        } else {
+             self.errorMes = [[NSError alloc] initWithDomain:[dict objectForKey:@"message"] code:[[[dict objectForKey:@"status"] stringValue] intValue] userInfo:responseObject];
         }
     }
     return NO;

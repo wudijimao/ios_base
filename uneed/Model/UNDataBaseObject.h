@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#include "NSDictionary+DTSafeGet.h"
+#import "NSDictionary+DTSafeGet.h"
 
 @interface UNDataBaseObject : NSObject
 

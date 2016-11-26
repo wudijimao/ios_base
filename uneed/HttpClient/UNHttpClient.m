@@ -10,7 +10,7 @@
 @import AFNetworking;
 #import "UNHttpRequest.h"
 
-static NSString * const cBASE_URL = @"https://api.app.net/";
+static NSString * const cBASE_URL = @"http://www.moemiku.com/";
 #define HTTP_POST_TIMEOUT 30
 
 @interface UNHttpRequestHandler()
@@ -77,6 +77,9 @@ static dispatch_once_t onceToken;
     _baseUrl = baseUrl;
     _client = [[AFHTTPSessionManager alloc] initWithBaseURL:[NSURL URLWithString:baseUrl]];
     _client.requestSerializer.timeoutInterval = HTTP_POST_TIMEOUT;
+    //_client.responseSerializer = [[AFJSONResponseSerializer alloc] init];
+    _client.responseSerializer = [[AFHTTPResponseSerializer alloc] init];
+
 }
 
 - (UNHttpRequestHandler *)sendRequest:(UNHttpRequest*)request complete:(UNRequestCompletionBlock) block
@@ -125,16 +128,16 @@ static dispatch_once_t onceToken;
         if (requestPath.length < 7) {
             requestPath = request.requestPath;
         }
-        //        NSString *method = @"POST";
-        //        switch (request.requestType) {
-        //            case MovieSDKHttpRequestType_Get:
-        //                method = @"GET";
-        //                break;
-        //            case MovieSDKHttpRequestType_Post:
-        //            default:
-        //                break;
-        //        }
-        [_client POST:requestPath parameters:params progress:nil success:successBlock failure:failureBlock];
+        
+        switch (request.requestType) {
+            case UNHttpRequestType_Get:
+                [_client GET:requestPath parameters:params progress:nil success:successBlock failure:failureBlock];
+                break;
+            case UNHttpRequestType_Post:
+            default:
+                [_client POST:requestPath parameters:params progress:nil success:successBlock failure:failureBlock];
+                break;
+        }
         return requestHandler;
     }
     //也应该通过block返回

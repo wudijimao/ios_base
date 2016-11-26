@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "DTTabBarController.h"
 
-@interface ViewController : UIViewController
+@interface ViewController : DTTabBarController
 
 
 @end

@@ -7,7 +7,10 @@
 //
 
 #import "UNBaseTableViewCell.h"
+#import "UNDataGameCellInfo.h"
 
 @interface UNBaseGameTableViewCell : UNBaseTableViewCell
+
+@property UNDataGameCellInfo *info;
 
 @end
