@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workspace
+   version = "1.0">
+   <Group
+      location = "container:"
+      name = "Venders">
+      <FileRef
+         location = "group:Vendors/SDWebImage/SDWebImage.xcodeproj">
+      </FileRef>
+      <FileRef
+         location = "group:Vendors/AFNetworking/AFNetworking.xcodeproj">
+      </FileRef>
+   </Group>
+   <FileRef
+      location = "group:uneed.xcodeproj">
+   </FileRef>
+</Workspace>

@@ -10,5 +10,9 @@
 
 
 @implementation UNWebView
-
+- (void)openUrl:(NSString*) url {
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:url]];
+    request.cachePolicy = NSURLRequestReturnCacheDataElseLoad;
+    [self loadRequest:request];
+}
 @end

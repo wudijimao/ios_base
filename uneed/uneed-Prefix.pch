@@ -1,0 +1,20 @@
+//
+//  uneed-Prefix.pch
+//  uneed
+//
+//  Created by ximiao1 on 16/11/26.
+//  Copyright © 2016年 wudijimao. All rights reserved.
+//
+
+#if defined(DEBUG)||defined(INHOUSE)
+#define _DEBUG
+#define LOG_OPEN
+#endif
+
+
+#ifdef __OBJC__
+#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
+#import "DTLog.h"
+
+#endif

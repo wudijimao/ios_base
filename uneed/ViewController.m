@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 #import "H5ViewController.h"
+#import <SDWebImage/UIImageView+WebCache.h>
 
 @interface ViewController ()
 
@@ -24,6 +25,10 @@
     [button setTitle:@"H5" forState:UIControlStateNormal];
     [button addTarget:self action:@selector(onClick:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:button];
+    
+    UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(20, 160, 100, 100)];
+    [imageView sd_setImageWithURL:[NSURL URLWithString:@"http://www.chinanews.com/cr/2013/0608/2964672802.jpg"]];
+    [self.view addSubview:imageView];
 }
 
 - (void)onClick:(UIButton*)btn {

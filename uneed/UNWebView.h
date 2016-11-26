@@ -10,5 +10,5 @@
 #import <WebKit/WebKit.h>
 
 @interface UNWebView : WKWebView
-
+- (void)openUrl:(NSString*) url;
 @end

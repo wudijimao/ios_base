@@ -17,16 +17,20 @@
     UNWebView *_webView;
 }
 
+- (BOOL)prefersStatusBarHidden {
+    //[self setNeedsStatusBarAppearanceUpdate];
+    return YES;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
     // Do any additional setup after loading the view.
     _webView = [[UNWebView alloc] initWithFrame:self.view.bounds];
     [self.view addSubview:_webView];
     NSURLCache *urlCache = [[NSURLCache alloc] initWithMemoryCapacity:4 * 1024 * 1024 diskCapacity:60 * 1024 * 1024 diskPath:nil];
     [NSURLCache setSharedURLCache:urlCache];
-    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:@"http://www.baidu.com"]];
-    request.cachePolicy = NSURLRequestReturnCacheDataElseLoad;
-    [_webView loadRequest:request];
+    //[NSURLRequest requestWithURL:[NSURL URLWithString:@"http://www.baidu.com"]]];
 }
 
 - (void)didReceiveMemoryWarning {
