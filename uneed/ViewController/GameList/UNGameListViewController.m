@@ -11,6 +11,7 @@
 #import "UNTabBarItem.h"
 #import "UNGetGameListRequest.h"
 #import "UNBaseGameTableViewCell.h"
+#import "uneed-Swift.h"
 
 @interface UNGameListViewController ()
 
@@ -70,7 +71,7 @@
 }
 //return nil to use deafaultClass defined in factory
 - (nullable Class)unTableView:(nonnull UITableView *)tableView classForRowAtIndexPath:(nonnull NSIndexPath*)indexPath data:(nonnull UNDataBaseObject*)data {
-    return [UNBaseGameTableViewCell class];
+    return [UNBaseGameCell class];
 }
 
 

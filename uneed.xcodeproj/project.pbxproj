@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		112963441DEF03A9007C4CE6 /* UNBaseGameCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 112963431DEF03A9007C4CE6 /* UNBaseGameCell.swift */; };
 		116FEE901DE724BE00D9A5EC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 116FEE8F1DE724BE00D9A5EC /* main.m */; };
 		116FEE931DE724BE00D9A5EC /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 116FEE921DE724BE00D9A5EC /* AppDelegate.m */; };
 		116FEE9B1DE724BE00D9A5EC /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 116FEE9A1DE724BE00D9A5EC /* Images.xcassets */; };
@@ -72,6 +73,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		112963421DEF03A9007C4CE6 /* uneed-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "uneed-Bridging-Header.h"; sourceTree = "<group>"; };
+		112963431DEF03A9007C4CE6 /* UNBaseGameCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UNBaseGameCell.swift; sourceTree = "<group>"; };
 		116FEE8A1DE724BE00D9A5EC /* uneed.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = uneed.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		116FEE8E1DE724BE00D9A5EC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		116FEE8F1DE724BE00D9A5EC /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -311,6 +314,8 @@
 			children = (
 				F8BCFD031DE95056006CA166 /* UNBaseGameTableViewCell.h */,
 				F8BCFD041DE95056006CA166 /* UNBaseGameTableViewCell.m */,
+				112963431DEF03A9007C4CE6 /* UNBaseGameCell.swift */,
+				112963421DEF03A9007C4CE6 /* uneed-Bridging-Header.h */,
 			);
 			path = GameCell;
 			sourceTree = "<group>";
@@ -568,6 +573,7 @@
 				TargetAttributes = {
 					116FEE891DE724BE00D9A5EC = {
 						CreatedOnToolsVersion = 6.3.2;
+						LastSwiftMigration = 0810;
 					};
 					116FEEA21DE724BE00D9A5EC = {
 						CreatedOnToolsVersion = 6.3.2;
@@ -663,6 +669,7 @@
 				116FEE901DE724BE00D9A5EC /* main.m in Sources */,
 				F8BCFD051DE95056006CA166 /* UNBaseGameTableViewCell.m in Sources */,
 				F8BCFD811DE9A98D006CA166 /* UNGameListViewController.m in Sources */,
+				112963441DEF03A9007C4CE6 /* UNBaseGameCell.swift in Sources */,
 				F8BCFDA21DE9BCFF006CA166 /* UNRefreshTableView.m in Sources */,
 				F8BCFD931DE9B38C006CA166 /* UNTabBarItem.m in Sources */,
 			);
@@ -789,7 +796,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				DEFINES_MODULE = YES;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_PREFIX_HEADER = "uneed/uneed-Prefix.pch";
 				INFOPLIST_FILE = uneed/Info.plist;
@@ -797,6 +806,9 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "$(PRODUCT_NAME:rfc1034identifier).game_center";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "uneed/Cells/GameCell/uneed-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -804,7 +816,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				DEFINES_MODULE = YES;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_PREFIX_HEADER = "uneed/uneed-Prefix.pch";
 				INFOPLIST_FILE = uneed/Info.plist;
@@ -812,12 +826,15 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "$(PRODUCT_NAME:rfc1034identifier).game_center";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "uneed/Cells/GameCell/uneed-Bridging-Header.h";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
 		116FEEB11DE724BE00D9A5EC /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
@@ -838,6 +855,7 @@
 		116FEEB21DE724BE00D9A5EC /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",

@@ -46,7 +46,7 @@ typedef NS_ENUM(NSUInteger, UNTableViewCellActionType) {
 - (void)update:(nullable UNDataBaseObject *)data cellInfo:(nullable UNTableViewCellExtraInfo *)info;
 
 //计算cell高度
-+ (CGFloat)preferredHeightForData:(nullable UNDataBaseObject*)data cellInfo:(nullable UNTableViewCellExtraInfo *)info width:(CGFloat)width;
++ (CGFloat)preferredHeightForData:(nullable UNDataBaseObject*)data cellInfo:(nullable UNTableViewCellExtraInfo *)info width:(CGFloat)width NS_SWIFT_NAME(preferedHeightFor(data:cellInfo:width:));
 
 //自定义reuseIdentifier，默认为类名
 + (nonnull NSString *)customReuseIdentifier;
